@@ -1,6 +1,7 @@
 import 'babel-polyfill'
 import express from 'express'
 import bodyParser from 'body-parser'
+import data from './data';
 
 import config from './config'
 import cors from './lib/cors'
@@ -17,6 +18,10 @@ app.use('/', router)
 
 router.get('/uptime', (request, response) => {
   response.send({ uptime: process.uptime() })
+})
+
+router.get('/data', async (request, response) => {
+  response.send({ data })
 })
 
 function serverStart (config) {
