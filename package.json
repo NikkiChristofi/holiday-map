@@ -1,0 +1,36 @@
+{
+  "name": "holiday-map",
+  "version": "0.0.0",
+  "engines": {
+    "node": ">8.9.0"
+  },
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "clean": "rm -rf build && mkdir build",
+    "start": "node -r babel-register .",
+    "watch": "nodemon -r babel-register .",
+    "build-server": "babel ./src -d ./build --copy-files",
+    "build": "yarn clean && yarn build-server",
+    "test:coverage": "yarn test --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "express-session": "^1.15.6"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "global": "^4.3.2",
+    "nodemon": "^1.18.4"
+  }
+}
