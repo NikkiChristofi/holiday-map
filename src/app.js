@@ -21,7 +21,25 @@ router.get('/uptime', (request, response) => {
 })
 
 router.get('/data', async (request, response) => {
-  response.send({ data })
+  response.send({ holidays: data.getCollection("holidays") })
+})
+
+//TODO: Change to PUT once i've installed postman
+router.get('/add', async (request, response) => {
+
+  //url = "https://eu1.locationiq.com/v1/search.php?key=9f3e8184e6da14&q=" + destination + "&format=json";
+
+  //put it in the db
+  var holidays = data.getCollection("holidays");
+  holidays.insert({
+    name: request.query.name,
+    startdate: "8Nov18",
+    enddate: "22Nov18",
+    lat: request.query.lat,
+    lon: request.query.lon,
+  });
+
+  response.send(200);
 })
 
 function serverStart (config) {
